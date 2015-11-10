@@ -1,6 +1,6 @@
 # simple-hdfs-du2
 
-Simple disk usage utility for HDFS. Shows disk usage of directories in console and on a Pie Chart graph.
+Simple disk usage utility for HDFS. Shows disk usage of directories in console and on a Pie Chart graph.Tested on Hadoop 2.2.X
 
 ### Dependencies
 
