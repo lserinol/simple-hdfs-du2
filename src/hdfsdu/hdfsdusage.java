@@ -16,17 +16,14 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
-
-
-
-
+import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
+import org.apache.commons.io.FileUtils;
 
 
 
 
 public class hdfsdusage extends ApplicationFrame {
 
-	
 	
 	static DefaultPieDataset dataset = new DefaultPieDataset();
 	static String myTitle;
@@ -48,6 +45,7 @@ public class hdfsdusage extends ApplicationFrame {
 	        );
 
 	        PiePlot plot = (PiePlot) chart.getPlot();
+		plot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0} / {2}"));
 	        plot.setLabelFont(new Font("SansSerif", Font.PLAIN, 12));
 	        plot.setNoDataMessage("No data available");
 	        plot.setCircular(false);
@@ -80,7 +78,6 @@ public class hdfsdusage extends ApplicationFrame {
 	    System.setProperty("HADOOP_USER_NAME", args[0].toString());
 	    
 	    
-	    myTitle=args[1].toString();
 	    String sr = args[1].toString();
 	    Path mysr = new Path(sr);
 	    
@@ -97,12 +94,16 @@ public class hdfsdusage extends ApplicationFrame {
 	    		fssize = fileSystem.getContentSummary(p).getLength();
 	    		if (fssize > 0 ) {     			//don't count 0 byte directories
 	    			total += fssize;
-    				dataset.setValue(p.getName(),new Double(fssize));
-  	    			System.out.println(p + " " + fssize);
+				String fileSizeDisplay = FileUtils.byteCountToDisplaySize(fssize);	
+    				dataset.setValue(p.getName()+" "+fileSizeDisplay,fssize);
+  	    			System.out.println(p + " " + fileSizeDisplay);
 	    		}
 	    		
 	    	}
-	    	System.out.println("Total is " + total );
+		String totalSizeDisplay = FileUtils.byteCountToDisplaySize(total);
+	    	System.out.println("Total is " + totalSizeDisplay);
+	    	myTitle=args[1].toString();
+		myTitle=myTitle+" Total Usage:"+totalSizeDisplay;
 	    	
 	    	// Display Pie Chart Graph of Usage 
 	    	hdfsdusage demo = new hdfsdusage("HDFS Disk Usage");

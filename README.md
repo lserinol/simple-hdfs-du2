@@ -18,11 +18,11 @@ like to run app.
 mvn package
 
 ### Usage
-java -jar  target/hdfsdu-0.0.1-SNAPSHOT-jar-with-dependencies.jar \<hdfs username\> \<hdfs directory\>
+java -jar  target/hdfsdu-0.0.2-SNAPSHOT-jar-with-dependencies.jar \<hdfs username\> \<hdfs directory\>
 
 ex:
-java -jar  target/hdfsdu-0.0.1-SNAPSHOT-jar-with-dependencies.jar hdfs /tmp
+java -jar  target/hdfsdu-0.0.2-SNAPSHOT-jar-with-dependencies.jar hdfs /tmp
 
-![] (https://raw.githubusercontent.com/lserinol/simple-hdfs-du/master/sample/Sample.png)
+![] (https://raw.githubusercontent.com/lserinol/simple-hdfs-du/master/sample/dus2.png)
 
 Note: tested on Hadoop 2.X
