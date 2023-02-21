@@ -23,6 +23,6 @@ java -jar  target/hdfsdu-0.0.2-SNAPSHOT-jar-with-dependencies.jar \<hdfs usernam
 ex:
 java -jar  target/hdfsdu-0.0.2-SNAPSHOT-jar-with-dependencies.jar hdfs /tmp
 
-![] (https://raw.githubusercontent.com/lserinol/simple-hdfs-du2/master/sample/dus2.png)
+![](https://raw.githubusercontent.com/lserinol/simple-hdfs-du2/master/sample/dus2.png)[(sample screen)](https://raw.githubusercontent.com/lserinol/simple-hdfs-du2/master/sample/dus2.png)
 
 Note: tested on Hadoop 2.X
